@@ -1,0 +1,8 @@
+run/
+build/
+docs/
+.vscode/
+.idea/
+.gradle/
+.DS_Store
+gradlew.bat
