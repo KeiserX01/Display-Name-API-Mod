@@ -1,13 +1,23 @@
 {
-  "itemGroup.displaynameapimod": "Example Mod Tab",
-  "block.displaynameapimod.example_block": "Example Block",
-  "item.displaynameapimod.example_item": "Example Item",
-
-  "displaynameapimod.configuration.title": "Display Name API Mod Configs",
-  "displaynameapimod.configuration.section.displaynameapimod.common.toml": "Display Name API Mod Configs",
-  "displaynameapimod.configuration.section.displaynameapimod.common.toml.title": "Display Name API Mod Configs",
-  "displaynameapimod.configuration.items": "Item List",
-  "displaynameapimod.configuration.logDirtBlock": "Log Dirt Block",
-  "displaynameapimod.configuration.magicNumberIntroduction": "Magic Number Text",
-  "displaynameapimod.configuration.magicNumber": "Magic Number"
+  "commands.displaynameapimod.setprefix.description": "Sets a prefix for a player",
+  "commands.displaynameapimod.setprefix.usage": "/setprefix <target> <id> <priority> <value>",
+  "commands.displaynameapimod.setprefix.success.single": "Set prefix 'displayname-api:%s' for player '%s'",
+  "commands.displaynameapimod.setprefix.success.multiple": "Set prefix 'displayname-api:%s' for %d player(s)",
+  "commands.displaynameapimod.setprefix.error.priority_collision": "Priority collision: another prefix already has priority %d",
+  "commands.displaynameapimod.setprefix.error.invalid_formatting": "Invalid legacy formatting: %s",
+  "commands.displaynameapimod.setprefix.error.offline": "Target '%s' does not exist or is offline",
+  
+  "commands.displaynameapimod.setsuffix.description": "Sets a suffix for a player",
+  "commands.displaynameapimod.setsuffix.usage": "/setsuffix <target> <id> <priority> <value>",
+  "commands.displaynameapimod.setsuffix.success.single": "Set suffix 'displayname-api:%s' for player '%s'",
+  "commands.displaynameapimod.setsuffix.success.multiple": "Set suffix 'displayname-api:%s' for %d player(s)",
+  "commands.displaynameapimod.setsuffix.error.priority_collision": "Priority collision: another suffix already has priority %d",
+  "commands.displaynameapimod.setsuffix.error.invalid_formatting": "Invalid legacy formatting: %s",
+  "commands.displaynameapimod.setsuffix.error.offline": "Target '%s' does not exist or is offline",
+  
+  "commands.displaynameapimod.resetnickname.description": "Resets a player's nickname",
+  "commands.displaynameapimod.resetnickname.usage": "/resetnickname <target>",
+  "commands.displaynameapimod.resetnickname.success.single": "Reset nickname for player '%s'",
+  "commands.displaynameapimod.resetnickname.success.multiple": "Reset nickname for %d player(s)",
+  "commands.displaynameapimod.resetnickname.error.offline": "Target '%s' does not exist or is offline"
 }
