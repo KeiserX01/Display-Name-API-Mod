@@ -5,6 +5,7 @@ import com.keiserx01.displaynameapi.command.ResetNicknameCommand;
 import com.keiserx01.displaynameapi.command.SetPrefixCommand;
 import com.keiserx01.displaynameapi.command.SetSuffixCommand;
 import com.keiserx01.displaynameapi.internal.NicknameManager;
+import com.keiserx01.displaynameapi.network.NetworkHandler;
 import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.server.MinecraftServer;
@@ -12,16 +13,19 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
+import net.neoforged.neoforge.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.event.server.ServerStoppingEvent;
+import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * Main mod class for DisplayName API.
  * <p>
- * This mod provides a server-side API for composing player nicknames
+ * This mod provides an API for composing player nicknames
  * from multiple prefixes and suffixes with priority-based ordering.
+ * Works on both client and server for full nameplate support.
  * </p>
  */
 @Mod(DisplayNameApiMod.MOD_ID)
@@ -38,6 +42,16 @@ public class DisplayNameApiMod {
         // Register this class on the MOD event bus to receive RegisterCommandsEvent
         NeoForge.EVENT_BUS.register(this);
         LOGGER.info("DisplayName API Mod initialized");
+    }
+    
+    /**
+     * Registers network packets.
+     * Uses the modern NeoForge payload registration system.
+     */
+    @SubscribeEvent
+    public void onRegisterPayloads(RegisterPayloadHandlersEvent event) {
+        NetworkHandler.registerChannel(event);
+        LOGGER.debug("DisplayName API network packets registered");
     }
     
     /**
